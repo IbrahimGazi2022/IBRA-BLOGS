@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu } from '@/theme-config';
 import { usePathname } from 'next/navigation';
+import Notification from '../Notification/Notification';
 
 const Navbar = () => {
     const pathname = usePathname();
@@ -11,6 +12,7 @@ const Navbar = () => {
     return (
         <section className="w-full bg-white border-b-1 border-[#e5e7eb] sticky top-0 z-50 shadow-sm">
             <div className="max-w-7xl mx-auto px-2 py-3 flex items-center justify-between relative">
+
                 <Link href="/" className="mr-10">
                     <Image
                         src="/images/logo.png"
@@ -21,6 +23,7 @@ const Navbar = () => {
                         priority
                     />
                 </Link>
+
                 <div className="flex items-center gap-2">
                     {Menu.map((link, index) => {
                         const isActive = link.path === pathname;
@@ -39,8 +42,15 @@ const Navbar = () => {
                     })}
                 </div>
 
-                <div>
-                    
+                <div className="flex items-center gap-2">
+                    <Notification />
+                    <Image
+                        src="/images/Ibrahim.png"
+                        alt="Admin"
+                        width={40}
+                        height={40}
+                        className="rounded-full object-cover"
+                    />
                 </div>
             </div>
         </section>
