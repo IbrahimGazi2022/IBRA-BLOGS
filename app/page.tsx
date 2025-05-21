@@ -1,10 +1,14 @@
+import { Navbar } from "@/components";
 import MainLayout from "@/layout/mainLayout";
 
 const page = () => {
   return (
-    <MainLayout>
-      <h1>Home</h1>
-    </MainLayout>
+    <>
+      <Navbar />
+      <MainLayout>
+        <h1></h1>
+      </MainLayout>
+    </>
   )
 }
 
