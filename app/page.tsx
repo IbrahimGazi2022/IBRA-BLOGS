@@ -1,4 +1,4 @@
-import { Navbar } from "@/components";
+import { Navbar, Hero } from "@/components";
 import MainLayout from "@/layout/mainLayout";
 
 const page = () => {
@@ -6,7 +6,7 @@ const page = () => {
     <>
       <Navbar />
       <MainLayout>
-        <h1></h1>
+        <Hero />
       </MainLayout>
     </>
   )
