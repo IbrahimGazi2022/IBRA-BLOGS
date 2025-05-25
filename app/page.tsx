@@ -1,5 +1,5 @@
 import MainLayout from "@/layout/mainLayout";
-import { Navbar, Hero, BlogPost, TopNews } from "@/components";
+import { Navbar, Hero, BlogPost, TopNews, MainPost } from "@/components";
 
 const page = () => {
   return (
@@ -9,6 +9,7 @@ const page = () => {
         <Hero />
         <BlogPost />
         <TopNews />
+        <MainPost />
       </MainLayout>
     </>
   )
