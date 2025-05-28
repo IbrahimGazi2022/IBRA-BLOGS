@@ -5,5 +5,6 @@ import BlogPostData from "./BlogPostData";
 import SliderImage from "./SliderImage";
 import { posts, featuredPost } from "./Post";
 import TutorialPostData from "./TutorialPostData";
+import AuthorData from "./AuthorData";
 
-export { Menu, Notifications, HeroSection, BlogPostData, SliderImage, posts, featuredPost, TutorialPostData };
+export { Menu, Notifications, HeroSection, BlogPostData, SliderImage, posts, featuredPost, TutorialPostData, AuthorData };
