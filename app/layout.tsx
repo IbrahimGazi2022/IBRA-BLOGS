@@ -12,8 +12,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        {children}
+      <body className={`${inter.className} relative min-h-screen`}>
+        <div className="svg-bg" />
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );
