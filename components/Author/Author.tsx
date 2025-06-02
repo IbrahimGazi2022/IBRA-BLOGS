@@ -8,8 +8,7 @@ const AuthorsList = () => {
                 {AuthorData.map((author, index) => (
                     <div
                         key={index}
-                        className='flex flex-col lg:flex-row-reverse max-w-[1280px] min-h-[400px] md:min-h-[550px] py-8 md:py-10 gap-8 md:gap-6 mx-auto mb-8 md:mb-12 relative'
-                    >
+                        className='flex flex-col lg:flex-row-reverse max-w-[1280px] min-h-[400px] md:min-h-[550px] py-8 md:py-10 gap-8 md:gap-6 mx-auto mb-8 md:mb-12 relative'>
                         <div className='lg:flex-2 relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:w-[500px] lg:h-[500px]'>
                             <Image
                                 src={author.imagePath}

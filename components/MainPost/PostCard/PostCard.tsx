@@ -1,59 +1,41 @@
 import Image from 'next/image';
 
-interface PostCardProps {
-    post: Post;
-    variant?: 'default' | 'featured';
-}
-
-export interface Post {
+interface Post {
     id: number;
     category: string;
     title: string;
     author: string;
+    paragraph: string;
     date: string;
     imageUrl: string;
+    height?: number;
 }
 
-const PostCard: React.FC<PostCardProps> = ({ post, variant = 'default' }) => {
-    if (variant === 'featured') {
-        return (
-            <div className="rounded-2xl mb-2 mt-2">
-                <div className="px-4 py-4 grid grid-cols-[100%] gap-4 items-center">
-                    <div className="w-full h-[830px] relative">
-                        <Image
-                            src={post.imageUrl}
-                            alt={post.title}
-                            fill
-                            className="object-cover rounded-2xl"
-                        />
-                    </div>
-                </div>
-            </div>
-        );
-    }
+interface PostCardProps {
+    post: Post;
+}
 
+const PostCard = ({ post }: PostCardProps) => {
     return (
-        <div className="rounded-2xl mb-2 mt-2">
-            <div className="px-4 py-4 grid grid-cols-[40%_50%] gap-4 items-center">
-                <div className="w-[130px] h-[130px] relative">
-                    <Image
-                        src={post.imageUrl}
-                        alt={post.title}
-                        fill
-                        className="object-cover rounded-2xl"
-                    />
-                </div>
-                <div>
-                    <span className="text-[#ff0000] text-xs uppercase font-bold py-1 rounded-full">
-                        {post.category}
-                    </span>
-                    <h6 className="mt-2 text-sm font-medium text-[#000000] hover:text-[#009245] transition-colors duration-300">
-                        {post.title}
-                    </h6>
-                    <div className="text-xs text-gray-600 mt-1">
-                        <span className="mr-2">{post.author}</span>
-                        <span>{post.date}</span>
-                    </div>
+        <div className="bg-white h-auto flex gap-4 rounded-4xl">
+            <div className="w-[150px] h-[120px] sm:h-[180px] relative flex-shrink-0">
+                <Image
+                    src={post.imageUrl}
+                    alt={post.title}
+                    fill
+                    className="object-cover rounded-l-4xl"
+                    sizes="(max-width: 640px) 180px, 180px"
+                />
+            </div>
+
+            <div className="flex-1 min-w-0 p-4">
+                <span className="bg-[#ff0000] text-white text-xs uppercase px-2.5 py-1 rounded-full">{post.category}</span>
+                <h2 className="text-lg font-semibold bold text-gray-800 line-clamp-2 mt-2">{post.title}</h2>
+                <p className="font-semibold bold text-gray-400 line-clamp-2 mt-2">{post.paragraph}</p>
+                <div className="flex items-center gap-2 text-sm text-gray-500 mt-3">
+                    <span className="font-medium">{post.author}</span>
+                    <span>•</span>
+                    <span>{post.date}</span>
                 </div>
             </div>
         </div>

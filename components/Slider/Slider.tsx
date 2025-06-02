@@ -42,8 +42,7 @@ const Slider = ({ images }: SliderProps) => {
                         slidesPerView: 3,
                     },
                 }}
-                className="!pb-10"
-            >
+                className="!pb-10">
                 {images.map((img) => (
                     <SwiperSlide key={img.src} className="!h-auto">
                         <div className="relative aspect-[4/3] group border border-[#ecf0f2] rounded-2xl overflow-hidden">

@@ -1,104 +1,40 @@
-export interface Post {
-    id: number;
-    category: string;
-    title: string;
-    author: string;
-    date: string;
-    imageUrl: string;
-    height?: number;
-}
-
-export const posts: Post[] = [
+export const posts = [
     {
         id: 1,
-        category: "Sports News",
-        title: "Industrial",
-        author: "Ibrahim",
-        date: "May 20, 2021",
-        imageUrl: "https://picsum.photos/seed/1/800/600",
+        category: "Finance & Sports",
+        title: "How to manage retirement savings with high interest rates",
+        paragraph: "With interest rates holding steady, financial advisors recommend diversifying investments to secure a stable retirement.",
+        author: "Sarah Thompson",
+        date: "June 1, 2024",
+        imageUrl: "/images/blog1.jpeg",
     },
     {
         id: 2,
-        category: "World News",
-        title: "Global Economy",
-        author: "Ibrahim",
-        date: "June 10, 2021",
-        imageUrl: "https://picsum.photos/seed/2/800/600",
+        category: "Healthcare Insights",
+        title: "Teachers, Nurses, and Care Workers Are Reaching a Breaking Point",
+        paragraph: "Essential workers are facing burnout as they continue to shoulder the weight of an overstressed system with little support.",
+        author: "Daniel Kim",
+        date: "June 3, 2024",
+        imageUrl: "/images/blog2.jpeg",
     },
     {
         id: 3,
-        category: "Tech News",
-        title: "AI Revolution",
-        author: "Ibrahim",
-        date: "July 5, 2021",
-        imageUrl: "https://picsum.photos/seed/3/800/600",
+        category: "Climate & Industry",
+        title: "Just 57 Firms Responsible for 80% of Global Carbon Emissions",
+        paragraph: "A new report reveals that a small number of companies are contributing the majority of global carbon dioxide output.",
+        author: "Ayesha Rahman",
+        date: "June 2, 2024",
+        imageUrl: "/images/blog3.jpeg",
     },
     {
         id: 4,
-        category: "Entertainment",
-        title: "Film Festival 2021",
-        author: "Ibrahim",
-        date: "August 15, 2021",
-        imageUrl: "https://picsum.photos/seed/4/800/600",
+        category: "Economic Strategy",
+        title: "Smart Strategies to Save for Retirement in Today’s Market",
+        paragraph: "From IRAs to high-yield savings, experts suggest combining traditional and modern tactics for long-term financial growth.",
+        author: "Michael Lee",
+        date: "June 4, 2024",
+        imageUrl: "/images/blog4.jpeg",
     },
-    {
-        id: 5,
-        category: "Health",
-        title: "Vaccine Updates",
-        author: "Ibrahim",
-        date: "September 1, 2021",
-        imageUrl: "https://picsum.photos/seed/5/800/600",
-    },
-    {
-        id: 6,
-        category: "Education",
-        title: "Online Learning Growth",
-        author: "Ibrahim",
-        date: "October 12, 2021",
-        imageUrl: "https://picsum.photos/seed/6/800/600",
-    },
-    {
-        id: 7,
-        category: "Science",
-        title: "Mars Rover Discovery",
-        author: "Ibrahim",
-        date: "November 3, 2021",
-        imageUrl: "https://picsum.photos/seed/7/800/600",
-    },
-    {
-        id: 8,
-        category: "Politics",
-        title: "Election Results",
-        author: "Ibrahim",
-        date: "December 20, 2021",
-        imageUrl: "https://picsum.photos/seed/8/800/600",
-    },
-    {
-        id: 9,
-        category: "Travel",
-        title: "Top Destinations 2022",
-        author: "Ibrahim",
-        date: "January 5, 2022",
-        imageUrl: "https://picsum.photos/seed/9/800/600",
-    },
-    {
-        id: 10,
-        category: "Business",
-        title: "Startup Boom",
-        author: "Ibrahim",
-        date: "February 14, 2022",
-        imageUrl: "https://picsum.photos/seed/10/800/600",
-    }
 ];
 
-export const featuredPost: Post = {
-    id: 10,
-    category: 'featured',
-    title: 'Featured Story of the Month',
-    author: 'Editor',
-    date: '01-12-2025',
-    imageUrl: 'https://picsum.photos/seed/featured/800/830',
-    height: 830
-};
-
-export default { posts, featuredPost };
+export default posts;
