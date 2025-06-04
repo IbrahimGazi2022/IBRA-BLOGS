@@ -18,12 +18,12 @@ interface PostCardProps {
 const PostCard = ({ post }: PostCardProps) => {
     return (
         <div className="bg-white h-auto flex gap-4 rounded-4xl">
-            <div className="w-[150px] h-[120px] sm:h-[180px] relative flex-shrink-0">
+            <div className="aspect-[3/4] w-[150px] relative flex-shrink-0 rounded-l-4xl overflow-hidden">
                 <Image
                     src={post.imageUrl}
                     alt={post.title}
                     fill
-                    className="object-cover rounded-l-4xl"
+                    className="object-cover"
                     sizes="(max-width: 640px) 180px, 180px"
                 />
             </div>

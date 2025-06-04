@@ -35,6 +35,42 @@ export const posts = [
         date: "June 4, 2024",
         imageUrl: "/images/blog4.jpeg",
     },
+    {
+        id: 5,
+        category: "Economic Strategy",
+        title: "10 Things To Do In The Evening Instead Of Watching Netflix",
+        paragraph: "Now, you don't need to throw your TV out the window and force yourself into some complicated evening routine.",
+        author: "Michael Lee",
+        date: "June 4, 2024",
+        imageUrl: "/images/blog5.webp",
+    },
+    {
+        id: 6,
+        category: "Science",
+        title: "ChatGPT Is Poisoning Your Brain.Here‘s How to Stop It Before It’s Too Late.",
+        paragraph: "Maybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.",
+        author: "Ibrahim Gazi",
+        date: "April 4, 2025",
+        imageUrl: "/images/blog6.webp",
+    },
+    {
+        id: 7,
+        category: "Life Style",
+        title: "10 Ways To Reduce Motion Sickness When Using VR",
+        paragraph: "Maybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.",
+        author: "Jordan Gibbs",
+        date: "April 4, 2025",
+        imageUrl: "/images/blog7.jpeg",
+    },
+    {
+        id: 8,
+        category: "My Life",
+        title: "30 Days. 1 Rule. Total Focus.That Rewired My Focus and Changed My Life.",
+        paragraph: "Maybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.",
+        author: "Jordan GibbsShubham Kumbhar",
+        date: "April 4, 2025",
+        imageUrl: "/images/blog8.webp",
+    },
 ];
 
 export default posts;
