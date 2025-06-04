@@ -67,10 +67,38 @@ export const posts = [
         category: "My Life",
         title: "30 Days. 1 Rule. Total Focus.That Rewired My Focus and Changed My Life.",
         paragraph: "Maybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.",
-        author: "Jordan GibbsShubham Kumbhar",
+        author: "Shubham Kumbhar",
         date: "April 4, 2025",
         imageUrl: "/images/blog8.webp",
     },
+    {
+        id: 9,
+        category: "My Life",
+        title: "A simple 3-step process to improve your ability to focus and increase your attention span.",
+        paragraph: "Maybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.",
+        author: "Abbas Ali",
+        date: "Mar 30, 2025",
+        imageUrl: "/images/blog9.jpg",
+    },
+    {
+        id: 10,
+        category: "My Life",
+        title: "30 Days. 1 Rule. Total Focus.That Rewired My Focus and Changed My Life.",
+        paragraph: "Maybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.",
+        author: "Shubham Kumbhar",
+        date: "April 4, 2025",
+        imageUrl: "/images/blog8.webp",
+    },
+    {
+        id: 11,
+        category: "My Life",
+        title: "30 Days. 1 Rule. Total Focus.That Rewired My Focus and Changed My Life.",
+        paragraph: "Maybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.",
+        author: "Shubham Kumbhar",
+        date: "April 4, 2025",
+        imageUrl: "/images/blog8.webp",
+    },
+
 ];
 
 export default posts;

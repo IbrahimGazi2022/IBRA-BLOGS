@@ -19,11 +19,7 @@ const Navbar = () => {
         <section className="w-full bg-white border-b border-[#e5e7eb] sticky top-0 z-50 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between relative">
                 <div className="flex items-center">
-                    <button
-                        onClick={toggleMenu}
-                        className="md:hidden mr-4 text-gray-700 focus:outline-none"
-                        aria-label="Toggle menu"
-                    >
+                    <button onClick={toggleMenu} className="md:hidden mr-4 text-gray-700 focus:outline-none" aria-label="Toggle menu">
                         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             {isMenuOpen ? (
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
