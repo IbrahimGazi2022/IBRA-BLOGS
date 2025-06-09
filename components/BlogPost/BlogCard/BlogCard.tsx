@@ -10,24 +10,28 @@ interface BlogCardProps {
 
 const BlogCard = ({ category, title, author, date, image }: BlogCardProps) => {
     return (
-        <section className="bg-[#f5f5f5] rounded-2xl">
-            <div className="px-4 py-4 grid grid-cols-2 gap-4 items-center">
-                <div>
-                    <span className="bg-[#ff0000] text-white text-xs uppercase px-2.5 py-1 rounded-full">{category}</span>
-                    <h6 className="mt-2 text-sm font-medium text-[#000000] hover:text-[#009245] transition-colors duration-300">
+        <section className="bg-[#f1f2f6] rounded-2xl hover:shadow-md transition-shadow duration-300">
+            <div className="px-4 py-4 grid grid-cols-1 sm:grid-cols-[1fr_120px] md:grid-cols-[1fr_140px] lg:grid-cols-[1fr_160px] xl:grid-cols-[1fr_180px] gap-3 sm:gap-4 items-center">
+                <div className="space-y-2">
+                    <span className="inline-block bg-[#ff0000] text-white text-xs uppercase px-2.5 py-1 rounded-full">
+                        {category}
+                    </span>
+                    <h6 className="text-sm lg:text-base font-medium text-[#000000] hover:text-[#009245] transition-colors line-clamp-2">
                         {title}
                     </h6>
-                    <div className="text-xs text-gray-600 mt-1">
-                        <span className="mr-2">{author}</span>
+                    <div className="text-xs text-gray-600">
+                        <span>{author}</span>
+                        <span className="mx-1.5">•</span>
                         <span>{date}</span>
                     </div>
                 </div>
-                <div className="w-[180px] h-[120px] relative">
+                <div className="relative w-full h-[100px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[120px]">
                     <Image
                         src={image}
                         alt={`${category} image`}
                         fill
-                        className="object-cover rounded-2xl"
+                        className="object-cover rounded-xl sm:rounded-2xl"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 120px, (max-width: 1280px) 160px, 180px"
                     />
                 </div>
             </div>

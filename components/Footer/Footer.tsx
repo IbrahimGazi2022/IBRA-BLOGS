@@ -3,9 +3,9 @@ import Image from 'next/image'
 
 const Footer = () => {
     return (
-        <div className='w-full bg-[#081838] py-8'>
+        <div className='w-full bg-[#081838] py-4'>
             <div className='max-w-7xl mx-auto px-4'>
-                <div className='flex flex-col md:flex-row items-center justify-between mb-8'>
+                <div className='flex flex-col md:flex-row items-center justify-between mb-4'>
                     <div className="flex items-center gap-4 mb-4 md:mb-0">
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-500 transition-colors">
                             <Facebook size={24} />
