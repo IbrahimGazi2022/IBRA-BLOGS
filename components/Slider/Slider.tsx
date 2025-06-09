@@ -55,8 +55,8 @@ const Slider = ({ images }: SliderProps) => {
                             />
                             {(img.title || img.subtitle || img.date) && (
                                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                    {img.alt && <p className="text-white text-sm mt-2">{img.alt}</p>}
                                     {img.title && <h3 className="text-white font-bold text-lg">{img.title}</h3>}
-                                    {img.subtitle && <p className="text-white text-sm mt-1">{img.subtitle}</p>}
                                     {img.date && <p className="text-gray-300 text-xs mt-2">{img.date}</p>}
                                 </div>
                             )}

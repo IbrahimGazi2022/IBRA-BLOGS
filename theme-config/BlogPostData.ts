@@ -5,7 +5,7 @@ const BlogPostData = [
         title: "10 Minimalist Habits for a More Focused Life",
         author: "Sarah Thompson",
         date: "03-01-2025",
-        image: "https://picsum.photos/seed/1/180/120",
+        image: "/images/blog/7.jpg",
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const BlogPostData = [
         title: "Top 5 Workouts to Boost Your Energy",
         author: "David Miller",
         date: "15-02-2025",
-        image: "https://picsum.photos/seed/2/180/120",
+        image: "/images/blog/8.jpg",
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ const BlogPostData = [
         title: "The Future of Space Travel in 2030",
         author: "Emily Carter",
         date: "27-03-2025",
-        image: "https://picsum.photos/seed/3/180/120",
+        image: "/images/blog/9.jpg",
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ const BlogPostData = [
         title: "Global Market Trends You Should Know",
         author: "Michael Johnson",
         date: "09-04-2025",
-        image: "https://picsum.photos/seed/4/180/120",
+        image: "/images/blog/10.jpg",
     },
     {
         id: 5,
@@ -37,7 +37,7 @@ const BlogPostData = [
         title: "5 Quick & Healthy Breakfast Ideas",
         author: "Olivia Brown",
         date: "22-05-2025",
-        image: "https://picsum.photos/seed/5/180/120",
+        image: "/images/blog/11.jpg",
     },
     {
         id: 6,
@@ -45,7 +45,7 @@ const BlogPostData = [
         title: "How to Build a Morning Routine That Sticks",
         author: "James Lee",
         date: "10-06-2025",
-        image: "https://picsum.photos/seed/6/180/120",
+        image: "/images/blog/12.jpg",
     },
 ];
 

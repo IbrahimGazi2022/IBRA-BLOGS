@@ -1,6 +1,6 @@
 const HeroSection = {
     mainImage: {
-        src: "/images/slider.jpg",
+        src: "/images/slider2.jpg",
         alt: "Hero Image",
     },
 
