@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 interface Post {
     id: number;
@@ -13,11 +14,17 @@ interface Post {
 
 interface PostCardProps {
     post: Post;
+    index: number;
 }
 
-const PostCard = ({ post }: PostCardProps) => {
+const PostCard = ({ post, index }: PostCardProps) => {
     return (
-        <div className="bg-white h-auto flex gap-4 rounded-4xl">
+        <motion.div
+            initial={{ opacity: 0, x: index % 2 === 0 ? -300 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            whileHover={{ scale: 1, boxShadow: '0px 10px 30px rgba(0,0,0,0.15)' }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            className="bg-white h-auto flex gap-4 rounded-4xl">
             <div className="aspect-[3/4] w-[150px] relative flex-shrink-0 rounded-l-4xl overflow-hidden">
                 <Image
                     src={post.imageUrl}
@@ -38,7 +45,7 @@ const PostCard = ({ post }: PostCardProps) => {
                     <span>{post.date}</span>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
