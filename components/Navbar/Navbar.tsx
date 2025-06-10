@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Menu } from '@/theme-config';
+import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation';
 import Notification from '../Notification/Notification';
 import User from '../User/User';
@@ -31,14 +32,23 @@ const Navbar = () => {
                     </button>
 
                     <Link href="/" className="mr-4 md:mr-10">
-                        <Image
-                            src="/images/logo.png"
-                            alt="ibra blogs"
-                            width={180}
-                            height={36}
-                            className="object-contain w-auto h-10 md:w-52 md:h-11"
-                            priority
-                        />
+                        <motion.div
+                            initial={{ y: -100, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 100,
+                                damping: 10
+                            }}>
+                            <Image
+                                src="/images/logo.png"
+                                alt="ibra blogs"
+                                width={180}
+                                height={36}
+                                className="object-contain w-auto h-10 md:w-52 md:h-11"
+                                priority
+                            />
+                        </motion.div>
                     </Link>
                 </div>
 
