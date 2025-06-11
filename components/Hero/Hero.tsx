@@ -38,11 +38,10 @@ const Hero = () => {
                 </div>
             </div>
 
-            {/* Rest of your existing code */}
             <div className="flex flex-col gap-4">
                 <div className="flex flex-col sm:flex-row gap-4">
                     {HeroSection.topRightImage.map((img, idx) => (
-                        <div key={idx} className="w-full sm:w-1/2 relative h-[150px] sm:h-[200px]">
+                        <div key={idx} className="w-full sm:w-1/2 relative h-[150px] sm:h-[200px] group">
                             <Image
                                 src={img.src}
                                 alt={img.alt}
@@ -50,11 +49,24 @@ const Hero = () => {
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 className="object-cover rounded-xl md:rounded-2xl border-2 border-[#fbfbfb]"
                             />
+                            {/* Text Overlay for top right images */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl md:rounded-2xl flex flex-col justify-end p-4 transition-all duration-300">
+                                <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    <span className="inline-block px-2 py-1 bg-[#ff0000] text-white text-xs font-medium rounded-full mb-2">
+                                        {idx === 0 ? 'Technology' : 'Business'}
+                                    </span>
+                                    <h2 className="text-sm sm:text-base font-bold text-white line-clamp-2 mb-2">
+                                        {idx === 0
+                                            ? 'The future of AI in everyday life'
+                                            : 'Global markets reach new highs'}
+                                    </h2>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
 
-                <div className="w-full relative h-[150px] sm:h-[200px] md:h-[calc(100%-216px)]">
+                <div className="w-full relative h-[150px] sm:h-[200px] md:h-[calc(100%-216px)] group">
                     <Image
                         src={HeroSection.topRightBottomImage.src}
                         alt={HeroSection.topRightBottomImage.alt}
@@ -62,10 +74,24 @@ const Hero = () => {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover rounded-xl md:rounded-2xl border-2 border-[#fbfbfb]"
                     />
+                    {/* Text Overlay for bottom right image */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl md:rounded-2xl flex flex-col justify-end p-4 transition-all duration-300">
+                        <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                            <span className="inline-block px-2 py-1 bg-[#ff0000] text-white text-xs font-medium rounded-full mb-2">
+                                Health
+                            </span>
+                            <h2 className="text-lg sm:text-base font-bold text-white line-clamp-2">
+                                New breakthrough in cancer research shows promising results
+                            </h2>
+                            <div className="flex items-center text-white/80 text-xs mt-1 mb-2">
+                                <span>June 5, 2023</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     );
 };
 
-export default Hero;    
+export default Hero;

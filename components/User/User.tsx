@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 
 const User = () => {
@@ -29,15 +30,10 @@ const User = () => {
 
             {isOpen && (
                 <div className="absolute right-0 mt-4 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Profile
-                    </a>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Login
-                    </a>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Logout
-                    </a>
+                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Dashboard</Link>
+                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Profile</Link>
+                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Login</Link>
+                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Logout</Link>
                 </div>
             )}
         </div>
