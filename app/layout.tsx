@@ -15,7 +15,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${inter.className} relative min-h-screen`}>
         <div className="svg-bg" />
         <div className="relative z-10">
-          {children}
+         {children}
         </div>
       </body>
     </html>

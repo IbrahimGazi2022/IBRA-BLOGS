@@ -31,8 +31,9 @@ const User = () => {
             {isOpen && (
                 <div className="absolute right-0 mt-4 w-48 bg-white rounded-md shadow-lg py-1 z-50">
                     <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Dashboard</Link>
-                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Profile</Link>
-                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Login</Link>
+                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/Profile">Profile</Link>
+                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/login">Login</Link>
+                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/registration">Registration</Link>
                     <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Logout</Link>
                 </div>
             )}
