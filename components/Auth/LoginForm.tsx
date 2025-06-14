@@ -1,6 +1,7 @@
 "use client"; // Add this at the top for Next.js
 
 import { motion } from "framer-motion"; // Import motion directly
+import Link from "next/link";
 
 const LoginForm = () => {
     return (
@@ -67,7 +68,7 @@ const LoginForm = () => {
                     transition={{ delay: 0.9, duration: 0.5 }}
                     className="text-center text-sm text-gray-500 pt-2"
                 >
-                    Don't have an account? <a href="#" className="text-blue-600 hover:underline">Sign up</a>
+                    Don't have an account? <Link href="/register" className="text-blue-600 hover:underline">Sign up</Link>
                 </motion.div>
             </form>
         </motion.div>

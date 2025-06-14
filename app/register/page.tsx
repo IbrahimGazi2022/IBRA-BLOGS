@@ -1,6 +1,6 @@
 import RegisterForm from "@/components/Auth/RegisterForm";
 
-const Login = () => {
+const register = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <RegisterForm />
@@ -8,4 +8,4 @@ const Login = () => {
   );
 }
 
-export default Login
+export default register

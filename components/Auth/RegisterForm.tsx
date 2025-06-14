@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const RegisterForm = () => {
     return (
@@ -120,7 +121,7 @@ const RegisterForm = () => {
                     transition={{ delay: 1.1, duration: 0.5 }}
                     className="text-center text-sm text-gray-500 pt-2"
                 >
-                    Already have an account? <a href="#" className="text-blue-600 hover:underline">Sign in</a>
+                    Already have an account? <Link href="/login" className="text-blue-600 hover:underline">Sign in</Link>
                 </motion.div>
             </form>
         </motion.div>

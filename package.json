@@ -9,18 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "framer-motion": "^12.16.0",
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "swiper": "^11.2.8"
+    "swiper": "^11.2.8",
+    "zod": "^3.25.64"
   },
   "devDependencies": {
+    "@prisma/client": "^6.9.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "prisma": "^6.9.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
