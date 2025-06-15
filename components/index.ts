@@ -6,5 +6,6 @@ import TopNews from "./TopNews/TopNews";
 import MainPost from "./MainPost/MainPost";
 import Footer from "./Footer/Footer";
 import Author from "./Author/Author";
+import Travel from "./Travel/Travel";
 
-export { Navbar, Hero, BlogPost, Slider, TopNews, MainPost, Author, Footer };
+export { Navbar, Hero, BlogPost, Travel, Slider, TopNews ,MainPost, Author, Footer };

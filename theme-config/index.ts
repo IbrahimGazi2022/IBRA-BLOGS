@@ -5,5 +5,6 @@ import BlogPostData from "./BlogPostData";
 import SliderImage from "./SliderImage";
 import { posts } from "./Post";
 import AuthorData from "./AuthorData";
+import Travel from "./Travel";
 
-export { Menu, Notifications, HeroSection, BlogPostData, SliderImage, posts, AuthorData };
+export { Menu, Notifications, HeroSection, BlogPostData, SliderImage, posts, AuthorData, Travel };
