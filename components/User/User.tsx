@@ -33,7 +33,7 @@ const User = () => {
                     <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Dashboard</Link>
                     <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/Profile">Profile</Link>
                     <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/login">Login</Link>
-                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/registration">Registration</Link>
+                    <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/register">Registration</Link>
                     <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/dashboard">Logout</Link>
                 </div>
             )}
