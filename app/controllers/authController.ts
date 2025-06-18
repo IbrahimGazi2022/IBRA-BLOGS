@@ -1,6 +1,7 @@
-import { db } from "../lib/db";
-import { hash } from "bcryptjs";
 import { z } from "zod";
+import { db } from "../lib/db";
+import jwt from "jsonwebtoken";
+import bcrypt, { hash } from "bcryptjs";
 
 const registerSchema = z.object({
     firstName: z.string()
@@ -17,6 +18,11 @@ const registerSchema = z.object({
         .regex(/[A-Z]/, "Must contain at least one uppercase letter")
         .regex(/[a-z]/, "Must contain at least one lowercase letter")
         .regex(/[0-9]/, "Must contain at least one number")
+});
+
+const loginSchema = z.object({
+    email: z.string().email("Invalid email format"),
+    password: z.string().min(1, "Password is required")
 });
 
 export const registerUser = async (userData: unknown) => {
@@ -60,5 +66,36 @@ export const registerUser = async (userData: unknown) => {
         console.error("Registration error:", error);
         throw new Error("Failed to create user. Please try again.");
     }
+}
+
+export const loginUser = async (credentials: unknown) => {
+    const validationResult = loginSchema.safeParse(credentials);
+    if (!validationResult.success) {
+        throw new Error("Invalid email or password format");
+    }
+    const { email, password } = validationResult.data;
+
+    // Find User 
+    const user = await db.user.findUnique({ where: { email } });
+    if (!user) {
+        throw new Error("User not found");
+    }
+
+    // verify password
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+        throw new Error("Invalid password");
+    }
+
+    // Generate JWT token
+    const token = jwt.sign(
+        { userId: user.id, email: user.email },
+        process.env.JWT_SECRET!,
+        { expiresIn: "1d" }
+    );
+
+    // Return user data (without password)
+    const { password: _, ...userWithoutPassword } = user; // remove password ( password: _ ) 
+    return { user: userWithoutPassword, token };
 
 }
