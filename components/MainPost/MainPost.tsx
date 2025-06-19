@@ -30,7 +30,7 @@
 
         return (
             <>
-                <h1 className="font-bold sm:text-2xl text-xl mb-4 bold">Todays Top Posts</h1>
+                <h1 className="font-bold text-2xl mt-8 uppercase mb-4">Todays Top Posts</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
                     {currentPosts.map((post, index) => (
                         <PostCard key={post.id} post={post} index={index} />

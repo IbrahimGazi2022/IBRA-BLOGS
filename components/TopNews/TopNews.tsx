@@ -6,7 +6,7 @@ import Slider from "../Slider/Slider";
 const TopNews = () => {
     return (
         <>
-            <h1 className="font-bold text-2xl mt-8 px-2">All News Topics & News</h1>
+            <h1 className="font-bold text-2xl mt-8 uppercase mb-2">All News Topics & News</h1>
             <div className="px-2">
                 <Slider
                     images={SliderImage}

@@ -182,7 +182,7 @@ const RegisterForm = () => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all shadow-md hover:shadow-lg font-medium"
+          className="w-full bg-[#009245] text-white py-3 rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all shadow-md hover:shadow-lg font-medium"
         >
           {isLoading ? "Registering..." : "Register"}
         </motion.button>
@@ -192,7 +192,7 @@ const RegisterForm = () => {
           transition={{ delay: 0.9, duration: 0.5 }}
           className="text-center text-sm text-gray-500 pt-2"
         >
-          Have an account? <Link href="/login" className="text-blue-600 hover:underline">Login</Link>
+          Have an account? <Link href="/login" className="text-[#009245] hover:underline">Login</Link>
         </motion.div>
       </form>
     </motion.div>

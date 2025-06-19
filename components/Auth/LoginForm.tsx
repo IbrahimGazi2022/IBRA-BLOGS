@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/app/store/authStore";
 
 const LoginForm = () => {
     const router = useRouter();
+    const { login } = useAuthStore()
+
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -34,8 +37,15 @@ const LoginForm = () => {
             const data = await response.json();
             if (!response.ok) throw new Error(data.message || "Login failed");
 
-            // Store token and redirect
-            localStorage.setItem("token", data.token);
+            login({
+                id: data.user.id,
+                name: data.user.name,
+                email: data.user.email
+            })
+
+            if (data.token) {
+                localStorage.setItem("token", data.token);
+            }
             router.push("/");
         } catch (err: any) {
             setError(err.message);
@@ -112,7 +122,7 @@ const LoginForm = () => {
                 >
                     <motion.button
                         type="submit"
-                        className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all shadow-md hover:shadow-lg font-medium"
+                        className="w-full bg-[#009245] text-white py-3 rounded-lg hover:bg-[#007a38] transition-all shadow-md hover:shadow-lg font-medium"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         disabled={isLoading}
@@ -137,7 +147,7 @@ const LoginForm = () => {
                     transition={{ delay: 0.9, duration: 0.5 }}
                     className="text-center text-sm text-gray-500 pt-2"
                 >
-                    Don't have an account? <Link href="/register" className="text-blue-600 hover:underline">Sign up</Link>
+                    Don't have an account? <Link href="/register" className="text-[#009245] hover:underline">Sign up</Link>
                 </motion.div>
             </form>
         </motion.div>
