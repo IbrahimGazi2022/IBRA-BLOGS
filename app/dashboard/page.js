@@ -1,10 +1,25 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Navbar } from "@/components";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "../store/authStore";
 
 export default function Dashboard() {
   const [showCreatePost, setShowCreatePost] = useState(false);
+
+  const router = useRouter();
+  const { isLoggedIn, user } = useAuthStore();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, [isLoggedIn, router]);
+
+  if (!isLoggedIn) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 flex">

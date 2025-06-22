@@ -1,20 +1,49 @@
 import { create } from 'zustand'
+import { createJSONStorage, persist } from 'zustand/middleware';
+
+type User = {
+    id: string;
+    name: string;
+    email: string;
+}
 
 type AuthStore = {
     isLoggedIn: boolean,
-    user: null | { // user login korle user object othoba null
-        id: string;
-        name: string;
-        email: string;
-    },
-    login: (userData: { id: string; name: string; email: string }) => void, // kono kichu return korbe na (void mane "nothing").
-    logout: () => void
+    user: null | User
+    login: (userData: User) => void,
+    logout: () => void,
+    initializeAuth: () => void // নতুন মেথড যোগ করুন
 }
 
-
-export const useAuthStore = create<AuthStore>((set) => ({
-    isLoggedIn: false,
-    user: null,
-    login: (userData) => set({ isLoggedIn: true, user: userData }),
-    logout: () => set({ isLoggedIn: false, user: null }),
-}))
+export const useAuthStore = create(
+    persist<AuthStore>(
+        (set, get) => ({
+            isLoggedIn: false,
+            user: null,
+            login: (userData) => set({ isLoggedIn: true, user: userData }),
+            logout: () => {
+                localStorage.removeItem('token'); // টোকেনও রিমুভ করুন
+                set({ isLoggedIn: false, user: null })
+            },
+            initializeAuth: () => {
+                const { isLoggedIn } = get();
+                if (!isLoggedIn) {
+                    const storedData = localStorage.getItem('auth-storage');
+                    if (storedData) {
+                        const parsedData = JSON.parse(storedData);
+                        if (parsedData.state.isLoggedIn && parsedData.state.user) {
+                            set({
+                                isLoggedIn: true,
+                                user: parsedData.state.user
+                            });
+                        }
+                    }
+                }
+            }
+        }),
+        {
+            name: 'auth-storage',
+            storage: createJSONStorage(() => localStorage),
+        }
+    )
+);

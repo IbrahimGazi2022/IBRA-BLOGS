@@ -1,21 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/app/store/authStore";
 
 const LoginForm = () => {
     const router = useRouter();
-    const { login } = useAuthStore()
-
+    const { login, isLoggedIn, initializeAuth } = useAuthStore();
     const [formData, setFormData] = useState({
         email: "",
         password: "",
     });
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [isInitializing, setIsInitializing] = useState(true);
+
+    // Initialize auth state on component mount
+    useEffect(() => {
+        initializeAuth();
+        setIsInitializing(false);
+    }, [initializeAuth]);
+
+    // Redirect if already logged in
+    useEffect(() => {
+        if (!isInitializing && isLoggedIn) {
+            router.push("/");
+        }
+    }, [isLoggedIn, isInitializing, router]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -37,15 +50,19 @@ const LoginForm = () => {
             const data = await response.json();
             if (!response.ok) throw new Error(data.message || "Login failed");
 
+            // Save user data to store and localStorage
             login({
                 id: data.user.id,
                 name: data.user.name,
                 email: data.user.email
-            })
+            });
 
+            // Save token to localStorage if exists
             if (data.token) {
                 localStorage.setItem("token", data.token);
             }
+
+            // Redirect to home page
             router.push("/");
         } catch (err: any) {
             setError(err.message);
@@ -53,6 +70,14 @@ const LoginForm = () => {
             setIsLoading(false);
         }
     };
+
+    if (isInitializing) {
+        return (
+            <div className="w-full max-w-md bg-white p-8 shadow-lg rounded-xl border border-gray-100 flex justify-center items-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#009245]"></div>
+            </div>
+        );
+    }
 
     return (
         <motion.div
