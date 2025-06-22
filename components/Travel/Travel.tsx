@@ -27,6 +27,7 @@ const Travel = () => {
 
     return (
         <motion.div
+            id="travel-section"
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, margin: "0px 0px -100px 0px" }}

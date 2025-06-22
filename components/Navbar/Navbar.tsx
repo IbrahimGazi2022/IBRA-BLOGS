@@ -2,20 +2,57 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import User from '../User/User';
+import { useState, useEffect } from 'react';
 import { Menu } from '@/theme-config';
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation';
 import Notification from '../Notification/Notification';
-import User from '../User/User';
 
 const Navbar = () => {
     const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('');
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    // Function to handle smooth scrolling
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            setActiveSection(sectionId);
+        }
+    };
+
+    // Effect to handle scroll and detect active section
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = Menu.filter(item => item.path.startsWith('#')).map(item => item.path.substring(1));
+            const scrollPosition = window.scrollY + 100; // Adding offset
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const offsetHeight = element.offsetHeight;
+
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(section);
+                        break;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <section className="w-full bg-white border-b border-[#e5e7eb] sticky top-0 z-50 shadow-sm">
@@ -54,7 +91,26 @@ const Navbar = () => {
 
                 <div className="hidden md:flex items-center gap-2">
                     {Menu.map((link, index) => {
-                        const isActive = link.path === pathname;
+                        const isActive = link.path === pathname ||
+                            (link.path.startsWith('#') && activeSection === link.path.substring(1));
+
+                        // If link is for a section (starts with #)
+                        if (link.path.startsWith('#')) {
+                            return (
+                                <button
+                                    key={index}
+                                    onClick={() => scrollToSection(link.path.substring(1))}
+                                    className={`flex items-center gap-1 px-4 py-2 rounded transition-all duration-300 ${isActive
+                                        ? 'text-[#009245] font-bold bg-slate-100 rounded-full'
+                                        : 'text-black hover:text-[#009245] hover:font-bold hover:bg-slate-100 hover:rounded-full'
+                                        }`}
+                                >
+                                    {link.name}
+                                </button>
+                            );
+                        }
+
+                        // Regular page link
                         return (
                             <Link
                                 key={index}
