@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AuthInitializer from '@/components/Auth/AuthInitializer';
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <div className="relative z-10">
          <AuthInitializer />
          {children}
+         <Toaster position="top-center" richColors />
         </div>
       </body>
     </html>

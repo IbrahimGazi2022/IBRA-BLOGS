@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Toaster, toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/app/store/authStore";
 
@@ -63,7 +64,9 @@ const LoginForm = () => {
             }
 
             // Redirect to home page
+            toast.success("Login successful");
             router.push("/");
+
         } catch (err: any) {
             setError(err.message);
         } finally {

@@ -12,7 +12,7 @@ const Menu = [
         path: "#travel-section"
     },
     {
-        name: "Category",
+        name: "Life Style",
         path: "#category-section"
     },
     {

@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { toast, Toaster } from 'sonner';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 type User = {
@@ -23,6 +24,7 @@ export const useAuthStore = create(
             login: (userData) => set({ isLoggedIn: true, user: userData }),
             logout: () => {
                 localStorage.removeItem('token'); // টোকেনও রিমুভ করুন
+                toast.info('Logout successful');
                 set({ isLoggedIn: false, user: null })
             },
             initializeAuth: () => {

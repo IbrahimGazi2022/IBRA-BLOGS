@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -55,6 +56,7 @@ const RegisterForm = () => {
       }
 
       // Registration successful - you can redirect here
+      toast.success("Registration successful");
       router.push("/login");
     } catch (err: any) {
       setError(err.message);
