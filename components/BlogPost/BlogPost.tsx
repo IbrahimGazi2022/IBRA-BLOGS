@@ -3,7 +3,7 @@ import { BlogPostData } from "@/theme-config"
 
 const BlogPost = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
+        <div id="category-section" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
             {
                 BlogPostData.map((post) => (
                     <BlogCard

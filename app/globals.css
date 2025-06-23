@@ -13,3 +13,13 @@
     opacity: 0.6;
     z-index: -50;
 }
+
+#post-section, #travel-section, #home, #category-section{
+    scroll-behavior: smooth;
+    scroll-margin-top: 100px; 
+  }
+  
+  #science-section {
+    scroll-behavior: smooth;
+    scroll-margin-top: 140px;
+  }

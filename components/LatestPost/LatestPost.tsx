@@ -1,36 +1,37 @@
-    "use client"
+"use client"
 
-    import { useState } from 'react';
-    import { posts } from '@/theme-config';
-    import PostCard from './PostCard/PostCard';
+import { useState } from 'react';
+import { posts } from '@/theme-config';
+import PostCard from './PostCard/PostCard';
 
-    const POSTS_PER_PAGE = 8;
+const POSTS_PER_PAGE = 8;
 
-    const MainPost = () => {
-        const [currentPage, setCurrentPage] = useState(1);
-        const totalPosts = posts.length;
-        const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+const LatestPost = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const totalPosts = posts.length;
+    const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
 
-        const currentPosts = posts.slice(
-            (currentPage - 1) * POSTS_PER_PAGE,
-            currentPage * POSTS_PER_PAGE
-        );
+    const currentPosts = posts.slice(
+        (currentPage - 1) * POSTS_PER_PAGE,
+        currentPage * POSTS_PER_PAGE
+    );
 
-        const goToPage = (page: number) => {
-            setCurrentPage(page)
-        }
+    const goToPage = (page: number) => {
+        setCurrentPage(page)
+    }
 
-        const goToPrevious = () => {
-            setCurrentPage((prev) => Math.max(prev - 1, 1))
-        }
+    const goToPrevious = () => {
+        setCurrentPage((prev) => Math.max(prev - 1, 1))
+    }
 
-        const goToNext = () => {
-            setCurrentPage((prev) => Math.min(prev + 1, totalPages));
-        }
+    const goToNext = () => {
+        setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+    }
 
-        return (
-            <>
-                <h1 className="font-bold text-2xl mt-8 uppercase mb-4">Todays Top Posts</h1>
+    return (
+        <>
+            <div id='post-section'>
+                <h1 className="font-bold text-2xl mt-8 uppercase mb-4">LATEST POST</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
                     {currentPosts.map((post, index) => (
                         <PostCard key={post.id} post={post} index={index} />
@@ -52,9 +53,10 @@
                         Next
                     </button>
                 </div>
-            </>
+            </div>
+        </>
 
-        );
-    };
+    );
+};
 
-    export default MainPost;
+export default LatestPost;

@@ -3,7 +3,7 @@ import { HeroSection } from "@/theme-config";
 
 const Hero = () => {
     return (
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-4 sm:px-6 py-4 md:py-8">
+        <section id="home" className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-4 sm:px-6 py-4 md:py-8">
             <div className="md:col-span-2 relative w-full h-[300px] sm:h-[350px] md:h-[450px] group">
                 {/* Main Image */}
                 <Image

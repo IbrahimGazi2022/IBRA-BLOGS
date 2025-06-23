@@ -1,23 +1,23 @@
 const Menu = [
     {
         name: "Home",
-        path: "/"
+        path: "#home"
     },
     {
-        name: "Blog",
-        path: "#blog-section"
+        name: "Latest Post",
+        path: "#post-section"
     },
     {
         name: "Travel",
         path: "#travel-section"
     },
     {
-        name: "Food",
-        path: "#food-section"
+        name: "Category",
+        path: "#category-section"
     },
     {
-        name: "Health",
-        path: "#health-section"
+        name: "Science",
+        path: "#science-section"
     },
     {
         name: "About",
@@ -25,7 +25,7 @@ const Menu = [
     },
     {
         name: "Contact",
-        path: "/contact"
+        path: "#footer"
     }
 ];
 

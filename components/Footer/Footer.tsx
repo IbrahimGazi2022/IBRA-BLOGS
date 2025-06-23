@@ -73,6 +73,7 @@ const footerVariants = (direction: 'left' | 'up' | 'right'): Variants => ({
 const Footer = () => {
     return (
         <motion.footer
+            id='footer'
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.25 }}
@@ -280,7 +281,7 @@ const Footer = () => {
                                     variants={fadeIn('up', 'spring', index * 0.1 + 0.2, 0.5)}
                                 >
                                     <Link
-                                        href={`/${item.toLowerCase().replace(' ', '-')}`}
+                                        href='#'
                                         className="text-gray-400 hover:text-white text-xs md:text-sm transition-colors duration-300"
                                     >
                                         {item}
