@@ -77,7 +77,7 @@ const Travel = () => {
                     </motion.div>
 
                     {/* Additional Posts 1*/}
-                    <div className="mt-8 space-y-6">
+                    <div className="hidden sm:block mt-8 space-y-6">
                         {firstFourPosts.map((post) => (
                             <motion.div
                                 key={post.id}
@@ -146,7 +146,7 @@ const Travel = () => {
                     </motion.div>
 
                     {/* Additional Posts 2*/}
-                    <div className="mt-8 space-y-6">
+                    <div className="hidden sm:block mt-8 space-y-6">
                         {secondFourPosts.map((post) => (
                             <motion.div
                                 key={post.id}

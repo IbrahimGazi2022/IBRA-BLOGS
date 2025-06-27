@@ -8,11 +8,13 @@ const BlogPost = () => {
                 BlogPostData.map((post) => (
                     <BlogCard
                         key={post.id}
+                        id={post.id}
                         category={post.category}
                         title={post.title}
                         author={post.author}
                         date={post.date}
                         image={post.image}
+                        content={post.content}
                     />
                 ))}
         </div>

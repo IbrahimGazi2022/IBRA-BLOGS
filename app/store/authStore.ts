@@ -13,7 +13,7 @@ type AuthStore = {
     user: null | User
     login: (userData: User) => void,
     logout: () => void,
-    initializeAuth: () => void // নতুন মেথড যোগ করুন
+    initializeAuth: () => void 
 }
 
 export const useAuthStore = create(
@@ -23,7 +23,7 @@ export const useAuthStore = create(
             user: null,
             login: (userData) => set({ isLoggedIn: true, user: userData }),
             logout: () => {
-                localStorage.removeItem('token'); // টোকেনও রিমুভ করুন
+                localStorage.removeItem('token'); 
                 toast.info('Logout successful');
                 set({ isLoggedIn: false, user: null })
             },
