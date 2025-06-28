@@ -18,6 +18,11 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    // Close mobile menu when a link is clicked
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     // Function to handle smooth scrolling
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
@@ -27,6 +32,7 @@ const Navbar = () => {
                 block: 'start'
             });
             setActiveSection(sectionId);
+            closeMenu(); // Close menu after clicking
         }
     };
 
@@ -89,6 +95,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
+                {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-2">
                     {Menu.map((link, index) => {
                         const isActive = link.path === pathname ||
@@ -130,6 +137,55 @@ const Navbar = () => {
                     <Notification />
                     <User />
                 </div>
+
+                {/* Mobile Menu */}
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                        className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 px-6 border-t border-gray-200"
+                    >
+                        <div className="flex flex-col space-y-4">
+                            {Menu.map((link, index) => {
+                                const isActive = link.path === pathname ||
+                                    (link.path.startsWith('#') && activeSection === link.path.substring(1));
+
+                                // If link is for a section (starts with #)
+                                if (link.path.startsWith('#')) {
+                                    return (
+                                        <button
+                                            key={index}
+                                            onClick={() => scrollToSection(link.path.substring(1))}
+                                            className={`flex items-center gap-1 px-4 py-2 rounded transition-all duration-300 ${isActive
+                                                ? 'text-[#009245] font-bold bg-slate-100 rounded-full'
+                                                : 'text-black hover:text-[#009245] hover:font-bold hover:bg-slate-100 hover:rounded-full'
+                                                }`}
+                                        >
+                                            {link.name}
+                                        </button>
+                                    );
+                                }
+
+                                // Regular page link
+                                return (
+                                    <Link
+                                        key={index}
+                                        href={link.path}
+                                        onClick={closeMenu}
+                                        className={`flex items-center gap-1 px-4 py-2 rounded transition-all duration-300 ${isActive
+                                            ? 'text-[#009245] font-bold bg-slate-100 rounded-full'
+                                            : 'text-black hover:text-[#009245] hover:font-bold hover:bg-slate-100 hover:rounded-full'
+                                            }`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </motion.div>
+                )}
             </div>
         </section>
     );
